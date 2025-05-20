@@ -1,3 +1,4 @@
+import { DashboardCards } from "@/components/dashboard/dashboard-cards";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -13,9 +14,9 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome {user.user_metadata.full_name}</p>
+    <div className="container py-10">
+      <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
+      <DashboardCards />
     </div>
   );
 }

@@ -15,22 +15,23 @@ interface MainLayoutProps {
   children: ReactNode;
 }
 
-export default function MainLayout({ children }: MainLayoutProps) {
+export default function MainAgentLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex min-h-screen">
       {/* Sidebar will go here */}
-      <SidebarProvider>
+      <SidebarProvider defaultOpen={false}>
         <DashboardSidebar isCollapsed={false} />
         <main className="flex-1">
+          {/* <div className="flex flex-col flex-1 min-h-screen"> */}
           <header className="flex items-center px-2 py-4 h-[50px] container bg-secondary/20">
             <SidebarTrigger className="" />
             <ThemeToggle />
             <BreadcrumbHeader />
           </header>
           <Separator />
-
+          {/* </div> */}
           {/* Header will go here */}
-          <div className="container mx-auto p-4">{children}</div>
+          <div className="container mx-auto p-3">{children}</div>
         </main>
       </SidebarProvider>
     </div>

@@ -12,5 +12,9 @@ export const protectedRoutes = [
     '/dashboard',          // Dashboard
     '/account',            // Account management
     '/settings',           // User settings
-    '/profile'             // User profile
+    '/profile',             // User profile
+    '/agent',              // Agent page
+    '/agent/:id',          // Agent page with id
+    '/interview',          // Interview page
+    '/interview/:id',      // Interview page with id
 ]

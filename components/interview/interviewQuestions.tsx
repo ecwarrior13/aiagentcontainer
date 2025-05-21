@@ -96,6 +96,7 @@ function InterviewQuestions({
       }
 
       const interviewId = uuidv4();
+
       const { error } = await supabase
         .from("interview")
         .insert([
@@ -109,10 +110,12 @@ function InterviewQuestions({
         .select();
 
       if (error) {
+        console.error("Error saving interview:", error);
         toast.error("Error saving interview:");
         setIsSaved(false);
         throw error;
       } else {
+        console.log("Interview saved successfully");
         toast.success("Interview saved successfully");
         setIsSaved(false);
         // Redirect after successful save

@@ -28,7 +28,7 @@ export type InterviewDetails = {
   duration: string
   experience_level: string
   type: string[]
-  questions: QuestionItem[]
+  questionList: QuestionItem[]
   candidateName: string
 }
 

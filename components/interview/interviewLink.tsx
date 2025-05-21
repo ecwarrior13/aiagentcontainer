@@ -55,6 +55,7 @@ function InterviewLink({ interview_id }: InterviewLinkProps) {
     fetchInterviewDetails();
   }, [interview_id]);
 
+  console.log("@fformData", formData);
   const onCopyLink = () => {
     navigator.clipboard.writeText(url);
     toast.success("Link copied to clipboard");
@@ -115,7 +116,7 @@ function InterviewLink({ interview_id }: InterviewLinkProps) {
               </h2>
               <h2 className="text-sm text-gray-500 flex gap-2 items-center">
                 <List className="w-4 h-4" />
-                {formData?.questions.length || 0} Questions
+                {formData?.questionList.length} Questions
               </h2>
               <h2 className="text-sm text-gray-500 flex gap-2 items-center">
                 <Calendar className="w-4 h-4" /> Expires on 11/1/2025

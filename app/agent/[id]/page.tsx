@@ -2,10 +2,10 @@
 import AiAgentContainer from "@/components/agent/AiAgentContainer";
 import YoutubeAgentContainer from "@/components/containers/youTubeContainer";
 
-// import AiFitnessAgentContainer from "@/components/agent/AiFitnessAgentContainer";
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import AiInterviewAgentContainer from "@/components/containers/AiInterviewAgentContainer";
+import AiFitnessAgentContainer from "@/components/containers/AiFitnessAgentContainer";
 
 function AgentPage() {
   const params = useParams();
@@ -38,7 +38,7 @@ function AgentPage() {
       case 3:
         return <AiFitnessAgentContainer inputValue={inputValue} />;
       case 4:
-        return <AiAgentContainer inputValue={inputValue} />;
+        return <AiAgentContainer />;
       default:
         // Fallback to a generic agent or error state
         return (

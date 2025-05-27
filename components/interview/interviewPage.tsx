@@ -1,20 +1,20 @@
 "use client";
 
-import { InterviewDataContext } from "@/context/InterviewDataContext";
 import { Loader2Icon, Mic, Phone, Timer } from "lucide-react";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import Vapi from "@vapi-ai/web";
-import { assistantOptions } from "@/services/Constants";
+import { assistantOptions } from "@/types/interviewTypes";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import axios from "axios";
-import { supabase } from "@/services/supabaseClient";
+
 import { useParams } from "next/navigation";
 
 function StartInterviewPage() {
   const { interviewInfo, setInterviewInfo } = useContext(InterviewDataContext);
-  const [vapi] = useState(() => new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY));
+  const [vapi] = useState(
+    () => new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY!)
+  );
   const [isCallActive, setIsCallActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [conversation, setConversation] = useState([]);

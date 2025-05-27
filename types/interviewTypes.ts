@@ -1,5 +1,7 @@
 // types/interviewTypes.ts
+
 import { BookOpen, Code, List, MessageSquare, PieChart, Briefcase, Users, Zap, LucideIcon } from "lucide-react";
+
 
 export interface InterviewTypeItem {
   title: string;
@@ -31,6 +33,7 @@ export type InterviewDetails = {
   questionList: QuestionItem[]
   candidateName: string
 }
+
 
 
 export const InterviewTypes: InterviewTypeItem[] = [
@@ -388,9 +391,9 @@ export const claude_Interview_Prompt = `
 export const claude_Feedback_Prompt = `
 
 You are an expert AI assistant specialized in generating structured interview feedback based on interview recordings, notes, or summaries. Your task is to analyze interview data and provide objective, structured feedback in a specific JSON format.
-Process
 
-Review the interview recording, transcript, or notes provided
+Process
+Review the interview recording, transcript, or notes provided in {{conversation}}
 Assess the candidate's performance across key dimensions
 Identify strengths and areas for improvement
 Determine overall fit for the position
@@ -406,7 +409,7 @@ Experience Relevance: Alignment of past experiences with job requirements
 
 Required Output Format
 You must respond with feedback in the following JSON format ONLY:
-json{
+{
   "feedback": {
     "rating": {
       "technical": 0,
@@ -423,28 +426,24 @@ json{
     "recommendation": ""
   }
 }
+
 Field Guidelines
 
 Rating: Use a scale of 1 to 10 for each category:
-
 1-3: Below expectations
 4-6: Meets basic expectations
 7-8: Strong performance
 9-10: Exceptional performance
 
-
 Summary: Provide 2-5 lines summarizing overall impression, key strengths, and notable areas for development
 Goodfit: Indicate whether the candidate is a good match for the position and why (or why not)
 Question:
-
 bestquestionanswered: Note the question where the candidate provided their strongest response
 highlightofanswer: Include a brief highlight or key insight from that answer
-
 
 Recommendation: Provide a clear recommendation regarding next steps (hire, additional interview, reject, etc.)
 
 Important Requirements
-
 Maintain strict adherence to the specified JSON format
 Ensure all ratings are integers between 1 and 10
 Keep the summary concise (2-5 lines maximum)

@@ -20,7 +20,7 @@ import {
   QuestionItem,
   InterviewTypeItem,
 } from "@/types/interviewTypes";
-import { generateInterviewQuestions } from "@/actions/interview/generateQuestions";
+//import { generateInterviewQuestions } from "@/actions/interview/generateQuestions";
 
 interface InterViewDetailsProps {
   onQuestionsGenerated: (
@@ -72,8 +72,35 @@ function InterViewDetails({
     setIsGenerating(true);
     setIsLoading(true);
 
+    /*  using server client action
     try {
       const result = await generateInterviewQuestions(formData);
+
+      if (result.success && result.questions.length > 0) {
+        onQuestionsGenerated(result.questions, formData);
+      } else {
+        console.error("Failed to generate questions:", result.error);
+        // Show error message
+      }
+    } catch (error) {
+      console.error("Error generating questions:", error);
+    } finally {
+      setIsGenerating(false);
+      setIsLoading(false);
+    }
+      */
+
+    //using api route
+    try {
+      const response = await fetch("/api/interview/questions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
 
       if (result.success && result.questions.length > 0) {
         onQuestionsGenerated(result.questions, formData);

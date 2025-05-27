@@ -165,9 +165,9 @@ function InterviewQuestions({
                   key={index}
                   className="p-4 bg-gray-50 rounded-lg border border-gray-200 group"
                 >
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <div className="font-medium text-gray-900 mb-1">
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium text-gray-900 mb-1 break-words">
                         <span className="text-gray-700 mr-2">
                           Q{index + 1}:
                         </span>
@@ -180,7 +180,7 @@ function InterviewQuestions({
                           {question.type && (
                             <Badge
                               variant="outline"
-                              className="bg-blue-50 text-blue-700 border-blue-200"
+                              className="bg-blue-50 text-blue-700 border-blue-200 whitespace-nowrap"
                             >
                               {question.type}
                             </Badge>
@@ -188,7 +188,7 @@ function InterviewQuestions({
                           {question.experience_level && (
                             <Badge
                               variant="outline"
-                              className="bg-green-50 text-green-700 border-green-200"
+                              className="bg-green-50 text-green-700 border-green-200 break-words"
                             >
                               {question.experience_level}
                             </Badge>
@@ -220,21 +220,22 @@ function InterviewQuestions({
                       )}
                     </div>
 
-                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
                       <Button
                         variant="ghost"
                         size="icon"
                         onClick={() => handleEditQuestion(question)}
                         aria-label={`Edit question ${index + 1}`}
+                        className="h-8 w-8"
                       >
                         <Pencil className="h-4 w-4" />
                       </Button>
                       <Button
                         variant="ghost"
                         size="icon"
-                        className=""
                         onClick={() => handleDeleteQuestion(index)}
                         aria-label={`Delete question ${index + 1}`}
+                        className="h-8 w-8"
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>

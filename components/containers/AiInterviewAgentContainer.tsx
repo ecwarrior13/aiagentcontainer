@@ -40,7 +40,7 @@ function AiInterviewAgentContainer({
         </div>
       </div>
       {/* Right Side */}
-      <div className="order-2 h-[500px] bg-white md:h-[calc(100vh-6rem)] lg:sticky lg:top-20 lg:order-2">
+      <div className="order-2 flex flex-col gap-4 border-gray-200 bg-white p-6 lg:order-2 lg:border-r">
         <InterviewQuestions
           questions={questions}
           isLoading={isLoading}

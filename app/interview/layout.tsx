@@ -3,13 +3,8 @@ import { DashboardSidebar } from "@/components/sidebar/app-sidebar";
 import BreadcrumbHeader from "@/components/sidebar/BreadcrumbHeader";
 import { Separator } from "@/components/ui/separator";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Metadata } from "next";
-import { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  title: "Dashboard - AIsemble",
-  description: "Your AI agent team management dashboard",
-};
+import { ReactNode } from "react";
 
 interface MainLayoutProps {
   children: ReactNode;

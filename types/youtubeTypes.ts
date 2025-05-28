@@ -13,3 +13,8 @@ export interface VideoDetails {
     channel: ChannelDetails;
     publishedAt: string;
 }
+
+export interface VideoTranscript {
+    text: string;
+    timestamp: string;
+}

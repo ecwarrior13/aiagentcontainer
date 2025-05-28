@@ -29,7 +29,7 @@ export const cardData: CardData[] = [
         title: "AI Interviewer",
         icon: UserRound,
         chatTitle: "AI Interviewer",
-        description: "A system agent that interviews a person and provides a summary of the interview.",
+        description: "A system agent that interviews a person and provides a feedback of the candidate.",
         inputLabel: "AI Interviewer",
         inputPlaceholder: "Enter a person's name",
         inputValue: "",

@@ -55,6 +55,7 @@ export default function InterviewStartPage() {
           await generateFeedback(conversationData, {
             candidateName: formData?.candidateName || "Candidate",
             jobPosition: formData?.jobPosition || "Job Position",
+            userEmail: formData?.userEmail || "null",
             interview_id,
           });
         }

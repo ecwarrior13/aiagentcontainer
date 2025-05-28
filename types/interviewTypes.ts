@@ -32,6 +32,7 @@ export type InterviewDetails = {
   type: string[]
   questionList: QuestionItem[]
   candidateName: string
+  userEmail: string
 }
 
 

@@ -36,6 +36,7 @@ export function useInterviewFeedback() {
                 candidateName: string
                 jobPosition: string
                 interview_id: string
+                userEmail: string
             },
         ) => {
             if (conversation.length === 0) {
@@ -85,6 +86,34 @@ export function useInterviewFeedback() {
                 // Parse the feedback data if it's a string
                 const feedbackData = typeof result.data === 'string' ? JSON.parse(result.data) : result.data;
                 setFeedback(feedbackData);
+                //save feedback to database
+                try {
+                    console.log("Attempting to insert with userEmail:", interviewData.userEmail);
+                    const supabase = await createClient();
+                    const { error } = await supabase
+                        .from("interview_feedback")
+                        .insert([
+                            {
+                                candidateName: interviewData.candidateName,
+                                interview_id: interviewData.interview_id,
+                                jobPosition: interviewData.jobPosition,
+                                feedback: feedbackData,
+                                userEmail: interviewData.userEmail,
+                            }
+
+                        ]);
+
+                    if (error) {
+                        console.error("Error saving interview feedback:", error);
+                        toast.error("Error saving interview feedback:");
+                    }
+                    if (!error) {
+                        toast.success("Feedback saved successfully");
+                    }
+
+                } catch (error) {
+                    console.error("Error saving feedback:", error)
+                }
                 return feedbackData;
 
             } catch (error) {

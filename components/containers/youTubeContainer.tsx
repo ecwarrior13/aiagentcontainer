@@ -1,5 +1,6 @@
 import React from "react";
 import YoutubeVideoDetails from "../youtube/YoutubeVideoDetails";
+import YoutubeTranscripts from "../youtube/YoutubeTranscripts";
 
 interface YoutubeAgentContainerProps {
   inputValue?: string;
@@ -15,7 +16,10 @@ function YoutubeAgentContainer({ inputValue }: YoutubeAgentContainerProps) {
           {!inputValue ? (
             <p className="text-gray-500">Please enter a YouTube video URL</p>
           ) : (
-            <YoutubeVideoDetails videoId={inputValue} />
+            <>
+              <YoutubeVideoDetails videoId={inputValue} />
+              <YoutubeTranscripts videoId={inputValue} />
+            </>
           )}
         </div>
       </div>

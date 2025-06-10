@@ -58,7 +58,7 @@ export async function getYoutubeTranscripts(videoId: string) {
         console.log("Fetching transcripts for videoId:", videoId);
 
         //check if video transcriptst already in the database
-        const { data: existingTranscripts, error: existingError } = await supabase
+        const { data: existingTranscripts } = await supabase
             .from("transcript")
             .select("*")
             .eq("video_id", videoId)
@@ -72,7 +72,9 @@ export async function getYoutubeTranscripts(videoId: string) {
         // }
 
         if (existingTranscripts) {
+            console.log("Transcripts already exist in the database");
             return {
+
                 success: true,
                 data: JSON.parse(existingTranscripts.transcript)
             }
@@ -103,7 +105,7 @@ export async function getYoutubeTranscripts(videoId: string) {
 
         return {
             success: true,
-            data: newTranscripts
+            data: JSON.parse(newTranscripts.transcript)
         }
 
 

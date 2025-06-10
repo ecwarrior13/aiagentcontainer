@@ -17,9 +17,9 @@ export default function YoutubeTranscripts({ videoId }: { videoId: string }) {
     console.log("Generating transcription for videoId:", videoId);
 
     const result = await getYoutubeTranscripts(videoId);
-    console.log("Transcript result:", result); // Debug log
+
     if (result.success) {
-      setTranscripts(result.data);
+      setTranscripts(result?.data);
     } else {
       console.error("Error getting transcript:", result.error);
     }

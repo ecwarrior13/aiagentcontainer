@@ -2,6 +2,8 @@ import React from "react";
 import YoutubeVideoDetails from "../youtube/YoutubeVideoDetails";
 import YoutubeTranscripts from "../youtube/YoutubeTranscripts";
 
+import AiAgentChatInterface from "../chat/AiAgentChatInterface";
+
 interface YoutubeAgentContainerProps {
   inputValue?: string;
 }
@@ -24,7 +26,15 @@ function YoutubeAgentContainer({ inputValue }: YoutubeAgentContainerProps) {
         </div>
       </div>
       {/* Right Side */}
-      <div className="order-1 h-[500px] bg-white md:h-[calc(100vh-6rem)] lg:sticky lg:top-20 lg:order-2"></div>
+      <div className="order-1 h-[500px] bg-white md:h-[calc(100vh-6rem)] lg:sticky lg:top-20 lg:order-2">
+        {!inputValue ? (
+          <div className="flex items-center justify-center h-full">
+            <p className="text-gray-500">Please enter a YouTube video URL</p>
+          </div>
+        ) : (
+          <AiAgentChatInterface agentInfo={inputValue} />
+        )}
+      </div>
     </div>
   );
 }

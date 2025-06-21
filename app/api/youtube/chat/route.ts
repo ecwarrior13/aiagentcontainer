@@ -9,6 +9,9 @@ const openRouter = createOpenRouter({
     apiKey: process.env.OPENROUTER_API_KEY,
 });
 
+const openRouterModel = openRouter("deepseek/deepseek-chat-v3-0324:free");
+const openaiModel = openai("gpt-4o-mini");
+
 export async function POST(req: Request) {
     const { messages, videoId } = await req.json();
 
@@ -27,7 +30,7 @@ export async function POST(req: Request) {
       instead of cache to make it more easy to understand. Format for notion.`;
 
     const result = streamText({
-        model: openRouter("deepseek/deepseek-chat-v3-0324:free"),
+        model: openaiModel,
         messages: [{ role: "system", content: systemMessage }, ...messages],
         tools: {
             fetchTranscript: fetchTranscript,

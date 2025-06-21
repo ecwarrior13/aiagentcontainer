@@ -1,5 +1,5 @@
 
-import { Dumbbell, Globe, type LucideIcon, UserRound } from "lucide-react"
+import { Dumbbell, Globe, type LucideIcon, PhoneCall, UserRound } from "lucide-react"
 export interface CardData {
     id: number;
     title: string;
@@ -43,6 +43,17 @@ export const cardData: CardData[] = [
         description: "A system agent that provides a fitness plan based on the user's goals.",
         inputLabel: "AI Fitness Coach",
         inputPlaceholder: "Enter your fitness goals",
+        inputValue: "",
+        inputRequired: true,
+    },
+    {
+        id: 4,
+        title: "AI Sales Agent",
+        icon: PhoneCall,
+        chatTitle: "AI Sales Agent",
+        description: "A system agent that sells a product to a customer.",
+        inputLabel: "AI Sales Agent",
+        inputPlaceholder: "Enter the field of the product you want to sell",
         inputValue: "",
         inputRequired: true,
     }

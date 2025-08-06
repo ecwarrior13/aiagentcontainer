@@ -7,6 +7,7 @@ import { useParams, useSearchParams } from "next/navigation";
 import AiInterviewAgentContainer from "@/components/containers/AiInterviewAgentContainer";
 import AiFitnessAgentContainer from "@/components/containers/AiFitnessAgentContainer";
 import AiSalesAgent from "@/components/containers/AiSalesAgent";
+import AiXAgentContainer from "@/components/containers/AiXAgentContainer";
 
 function AgentPage() {
   const params = useParams();
@@ -40,6 +41,8 @@ function AgentPage() {
         return <AiFitnessAgentContainer inputValue={inputValue} />;
       case 4:
         return <AiSalesAgent />;
+      case 5:
+        return <AiXAgentContainer inputValue={inputValue} />;
       default:
         // Fallback to a generic agent or error state
         return (

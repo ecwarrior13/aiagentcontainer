@@ -56,5 +56,16 @@ export const cardData: CardData[] = [
         inputPlaceholder: "Enter the field of the product you want to sell",
         inputValue: "",
         inputRequired: true,
+    },
+    {
+        id: 5,
+        title: "X Researcher",
+        icon: Globe,
+        chatTitle: "AI X Researcher",
+        description: "A system agent that will research a topic and provide a summary of the information.",
+        inputLabel: "AI X Researcher",
+        inputPlaceholder: "Enter the destination you want to visit",
+        inputValue: "",
+        inputRequired: true,
     }
 ]

@@ -30,7 +30,7 @@ export async function POST(req: Request) {
       instead of cache to make it more easy to understand. Format for notion.`;
 
     const result = streamText({
-        model: openaiModel,
+        model: openRouterModel,
         messages: [{ role: "system", content: systemMessage }, ...messages],
         tools: {
             fetchTranscript: fetchTranscript,

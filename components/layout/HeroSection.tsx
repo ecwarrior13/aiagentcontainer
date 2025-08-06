@@ -43,7 +43,7 @@ function HeroSection() {
       <div className="mt-16 relative">
         <div className="bg-card text-card-foreground rounded-lg shadow-xl border border-border overflow-hidden">
           <Image
-            src="/placeholder.svg?height=600&width=1200"
+            src="/dashboardsnip.png"
             alt="AIsemble Dashboard Preview"
             width={1200}
             height={600}
